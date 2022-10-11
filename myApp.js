@@ -2,7 +2,8 @@ let express = require('express');
 let app = express();
 
 //Get access to environment variables/settings
-require('dotenv/config');
+require('dotenv').config();
+// require('dotenv/config');
 
 
 // app.listen(()=> 3000);
