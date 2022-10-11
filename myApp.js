@@ -33,7 +33,15 @@ app.get("/json", (req, res, next) => {
     res.json(objectJSON);
 });
 
+app.get("/now", (req, res, next) => {
+    const time = new Date().toString();
+    console.log(time);
+    next();
+});
 
+app.get("/now", (req, res, next) => {
+
+});
 
 
 
