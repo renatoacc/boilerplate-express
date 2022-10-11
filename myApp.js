@@ -15,8 +15,8 @@ app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/json", (req, res, next) => {
-    // const objectJSON = { "message": "Hello json" };
-    res.json(process.env.MESSAGE_STYLE);
+    const objectJSON = process.env.MESSAGE_STYLE;
+    res.json(objectJSON);
 })
 
 
