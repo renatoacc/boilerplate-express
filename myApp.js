@@ -28,7 +28,7 @@ app.get("/json", (req, res, next) => {
     res.json(objectJSON);
 });
 
-app.use((req, res, next) => {
+app.use(function (req, res, next) {
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
 })
