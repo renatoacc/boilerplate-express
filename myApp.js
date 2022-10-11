@@ -28,8 +28,8 @@ app.get("/json", (req, res, next) => {
     res.json(objectJSON);
 });
 
-app.post((req, res, next) => {
-    console.log(req.path + " - " + req.ip);
+app.use(function middleware(req, res, next) {
+    console.log(req.method + " " + req.path + " - " + req.ip);
     next();
 })
 
