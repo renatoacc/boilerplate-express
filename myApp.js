@@ -33,14 +33,13 @@ app.get("/json", (req, res, next) => {
     res.json(objectJSON);
 });
 
-app.get("/now", (req, res, next) => {
-    const time = new Date().toString();
-    console.log(time);
+const middleware = (req, res, next) => {
+    req.time = new Date().toString();
     next();
-});
+}
 
-app.get("/now", (req, res, next) => {
-
+app.get("/now", middleware, (req, res, next) => {
+    res.json({ "time": req.time });
 });
 
 
