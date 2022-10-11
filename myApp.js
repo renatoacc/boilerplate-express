@@ -13,7 +13,9 @@ app.get('/', (req, res, next) => {
 app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
-
+app.get("/json", (req, res, next) => {
+    res.json({ "message": "Hello json" });
+})
 
 
 
