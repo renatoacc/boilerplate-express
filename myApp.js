@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-require('dotenv').config();
+// require('dotenv').config();
 
 // app.listen(()=> 3000);
 console.log("Hello World");
@@ -15,10 +15,10 @@ app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/json", (req, res, next) => {
-    let objectJSON = { "message": "Hello json" };
+    const objectJSON = { "message": "Hello json" };
 
     if (process.env.MESSAGE_STYLE === "uppercase") {
-        objectJSON.message.toUpperCase()
+        objectJSON.message = objectJSON.message.toUpperCase()
         res.json(objectJSON);
     } else {
         res.json(objectJSON);
