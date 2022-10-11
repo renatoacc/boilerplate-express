@@ -15,6 +15,11 @@ app.use((req, res, next) => {
     next();
 });
 
+const middleware = (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}
+
 // app.get('/', (req, res, next) => {
 //     res.send("Hello Express");
 // });
@@ -33,13 +38,12 @@ app.get("/json", (req, res, next) => {
     res.json(objectJSON);
 });
 
-const middleware = (req, res, next) => {
-    req.time = new Date().toString();
-    next();
-}
-
 app.get("/now", middleware, (req, res, next) => {
     res.json({ "time": req.time });
+});
+
+app.get("/:word/echo", (req, res, next) => {
+    res.json({ "echo": req.params.word });
 });
 
 
