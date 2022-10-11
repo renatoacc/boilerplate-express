@@ -28,7 +28,10 @@ app.get("/json", (req, res, next) => {
     res.json(objectJSON);
 });
 
-
+app.post((req, res, next) => {
+    console.log(req.path + " - " + req.ip);
+    next();
+})
 
 
 
