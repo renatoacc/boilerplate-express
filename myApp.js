@@ -51,6 +51,11 @@ app.get("/:word/echo", (req, res, next) => {
     res.json({ "echo": req.params.word });
 });
 
+app.post("/name", (req, res, next) => {
+    const fullname = req.body.first + " " + req.body.last;
+    res.json({ "name": fullname });
+})
+
 app.get("/name", (req, res, next) => {
     const { first, last } = req.query;
     res.json({ "name": first + " " + last });
