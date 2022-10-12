@@ -56,10 +56,10 @@ app.post("/name", (req, res, next) => {
     res.json({ "name": fullname });
 })
 
-app.get("/name", (req, res, next) => {
-    const { first, last } = req.query;
-    res.json({ "name": first + " " + last });
-});
+// app.get("/name", (req, res, next) => {
+//     const { first, last } = req.query;
+//     res.json({ "name": first + " " + last });
+// });
 
 
 
