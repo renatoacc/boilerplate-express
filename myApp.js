@@ -15,7 +15,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+    bodyParser.urlencoded({ extended: false });
+    next();
+});
 
 const middleware = (req, res, next) => {
     req.time = new Date().toString();
