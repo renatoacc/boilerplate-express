@@ -20,6 +20,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(bodyParser.json());
+
+
 const middleware = (req, res, next) => {
     req.time = new Date().toString();
     next();
@@ -52,13 +55,11 @@ app.get("/:word/echo", (req, res, next) => {
 });
 
 app.get("/name", (req, res, next) => {
-    const { first, last } = req.query;
-    res.json({ "name": first + " " + last });
+    res.json({ "name": req.query.first + " " + req.query.last });
 });
 
 app.post("/name", (req, res, next) => {
-    const fullname = req.body.first + " " + req.body.last;
-    res.json({ "name": fullname });
+    res.json({ "name": req.body.first + " " + req.body.last });
 })
 
 
