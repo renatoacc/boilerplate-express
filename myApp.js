@@ -1,12 +1,15 @@
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
+
 // variables
 const absolutePath = __dirname + "/views/index.html";
 
 //Get access to environment variables/settings
 require('dotenv').config();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 //middleware call
@@ -15,12 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    bodyParser.urlencoded({ extended: false });
-    next();
-});
 
-app.use(bodyParser.json());
 
 
 const middleware = (req, res, next) => {
